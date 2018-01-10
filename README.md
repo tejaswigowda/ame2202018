@@ -1,3 +1,4 @@
+[BASH Tutorial, Focus on Ch. 1](https://www.tldp.org/LDP/Bash-Beginners-Guide/html/Bash-Beginners-Guide.html)
 
 ## Assignment Schedule:
 
