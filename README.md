@@ -1,5 +1,7 @@
 [BASH Tutorial, Focus on Ch. 1](https://www.tldp.org/LDP/Bash-Beginners-Guide/html/Bash-Beginners-Guide.html)
 
+[HTML Tutorial](https://www.w3schools.com/html/)
+
 ## Assignment Schedule:
 
 1/22 - 1st Assignment Due
