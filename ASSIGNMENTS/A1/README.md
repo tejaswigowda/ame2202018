@@ -19,8 +19,8 @@ On Github.
 <img height="100" width="100">
 
 # Your Name
-## phone | email (clickable links)
-## address (clicking should lead to google maps directions page)
+## [phone]() | [email]() `(clickable links)`
+## [address]() `(clicking should lead to google maps directions page)`
 
 ____
 
