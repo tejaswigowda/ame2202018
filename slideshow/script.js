@@ -6,6 +6,7 @@ var allImages = [
   'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Malachite_kingfisher_%28Corythornis_cristatus%29.jpg/1024px-Malachite_kingfisher_%28Corythornis_cristatus%29.jpg'
 ];
 
+var currentSlide = 1;
 
 var start = function()
 {
@@ -15,11 +16,24 @@ var start = function()
     markup = markup + "<img src='" + imgURL + "'>";
   }
   $("#ssContainer").html(markup);
+  goToSlide(1, 0);
 }
 
 
-var goToSlide = function(n)
+var goToSlide = function(n, d)
 {
-  $("#ssContainer img").fadeOut(1000);
-  $("#ssContainer img:nth-of-type(" + n + ")").fadeIn(1000);
+  d = d || 0;
+  $("#ssContainer img").fadeOut(d);
+  $("#ssContainer img:nth-of-type(" + n + ")").stop().fadeIn(d);
+  currentSlide = n;
+}
+
+
+var goNext = function()
+{
+  var n = currentSlide + 1;
+  if (n > allImages.length){
+    n = 1;
+  } 
+  goToSlide(n, 1000);
 }
