@@ -5,3 +5,14 @@ var allImages = [
   'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Savanna_hawk_%28Buteogallus_meridionalis%29.JPG/800px-Savanna_hawk_%28Buteogallus_meridionalis%29.JPG',
   'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Malachite_kingfisher_%28Corythornis_cristatus%29.jpg/1024px-Malachite_kingfisher_%28Corythornis_cristatus%29.jpg'
 ];
+
+
+var start = function()
+{
+  var markup = "";
+  for(var i = 0; i < allImages.length; i++){
+    var imgURL = allImages[i];
+    markup = markup + "<img src='" + imgURL + "'>";
+  }
+  $("#ssContainer").html(markup);
+}
