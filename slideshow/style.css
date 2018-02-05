@@ -7,6 +7,12 @@
     left: 0px;
 }
 
+#ssContainer img{
+  position:absolute;
+  width: 100%;
+  height: 100%;
+}
+
 #arrowContainer button{
     width: 50px;
     height: 50px;

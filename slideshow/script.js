@@ -16,3 +16,10 @@ var start = function()
   }
   $("#ssContainer").html(markup);
 }
+
+
+var goToSlide = function(n)
+{
+  $("#ssContainer img").fadeOut(1000);
+  $("#ssContainer img:nth-of-type(" + n + ")").fadeIn(1000);
+}
