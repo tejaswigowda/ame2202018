@@ -7,10 +7,13 @@
     left: 0px;
 }
 
-#ssContainer img{
+#ssContainer .slide{
   position:absolute;
   width: 100%;
   height: 100%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
 }
 
 #arrowContainer button{

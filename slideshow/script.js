@@ -12,7 +12,8 @@ var start = function()
   var markup = "";
   for(var i = 0; i < allImages.length; i++){
     var imgURL = allImages[i];
-    markup = markup + "<img src='" + imgURL + "'>";
+   // markup = markup + "<img src='" + imgURL + "'>";
+    markup = markup + "<div class='slide' style='background-image:url(" + imgURL + ")'></div>";
   }
   $("#ssContainer").html(markup);
   goToSlide(1, 0);
@@ -22,8 +23,8 @@ var start = function()
 var goToSlide = function(n, d)
 {
   d = d || 0;
-  $("#ssContainer img").stop().fadeOut(d);
-  $("#ssContainer img:nth-of-type(" + n + ")").stop().fadeIn(d);
+  $("#ssContainer .slide").stop().fadeOut(d);
+  $("#ssContainer .slide:nth-of-type(" + n + ")").stop().fadeIn(d);
   currentSlide = n;
 }
 
@@ -33,6 +34,15 @@ var goNext = function()
   var n = currentSlide + 1;
   if (n > allImages.length){
     n = 1;
+  } 
+  goToSlide(n, 1000);
+}
+
+var goPrev = function()
+{
+  var n = currentSlide - 1;
+  if (n < 1){
+    n = allImages.length;
   } 
   goToSlide(n, 1000);
 }
