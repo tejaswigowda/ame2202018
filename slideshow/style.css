@@ -35,3 +35,7 @@
     bottom: 20px;
     right: 20px;
 }
+
+.active{
+  border: 5px solid gold;
+}

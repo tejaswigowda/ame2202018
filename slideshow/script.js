@@ -24,6 +24,15 @@ var start = function()
   }
    */
   $("#ssContainer").html(markup);
+
+  var markup1 = "";
+  for(var i = 0; i < allImages.length; i++){
+    markup1 = markup1 + '<button onclick="goToSlide(' + (i + 1) + ',1000)">' + (i + 1) + '</button>';
+  }
+  $("#numContainer").html(markup1);
+  
+
+
   goToSlide(1, 0);
 }
 
@@ -33,6 +42,10 @@ var goToSlide = function(n, d)
   d = d || 0;
   $("#ssContainer .slide").stop().fadeOut(d);
   $("#ssContainer .slide:nth-of-type(" + n + ")").stop().fadeIn(d);
+
+  $("#numContainer button").removeClass("active");
+  $("#numContainer button:nth-of-type(" + n + ")").addClass("active");
+
   currentSlide = n;
 }
 
