@@ -12,9 +12,17 @@ var start = function()
   var markup = "";
   for(var i = 0; i < allImages.length; i++){
     var imgURL = allImages[i];
-   // markup = markup + "<img src='" + imgURL + "'>";
     markup = markup + "<div class='slide' style='background-image:url(" + imgURL + ")'></div>";
   }
+
+  /*
+  var i = 0;
+  while(i < allImages.length){
+    var imgURL = allImages[i];
+    markup = markup + "<div class='slide' style='background-image:url(" + imgURL + ")'></div>";
+    i = i + 1;
+  }
+   */
   $("#ssContainer").html(markup);
   goToSlide(1, 0);
 }
