@@ -4,8 +4,7 @@
 ## Task
 
 Start with
-[https://github.com/tejaswigowda/ame2202018/tree/master/slideshow] (this
-code) and make sure the images slide from left-to-right/right-to-left
+(this code)[https://github.com/tejaswigowda/ame2202018/tree/master/slideshow]  and make sure the images slide from left-to-right/right-to-left
 when transitioning.
 
 ## Submission
