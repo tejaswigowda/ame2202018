@@ -36,16 +36,28 @@ var start = function()
   goToSlide(1, 0);
 }
 
+var ani = "swipe";
 
 var goToSlide = function(n, d)
 {
   d = d || 0;
-  $("#ssContainer .slide").stop().fadeOut(d);
-  $("#ssContainer .slide:nth-of-type(" + n + ")").stop().fadeIn(d);
+  if(ani === "fade"){
+    $("#ssContainer .slide").stop().fadeOut(d);
+    $("#ssContainer .slide:nth-of-type(" + n + ")").stop().fadeIn(d);
+  }
+ else{
+    if(n > currentSlide){ // swipe left
+      $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
+      $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"-100%"}, d);
+      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"margin-left":"100%"}).animate({"margin-left":"0%"}, d);
+
+    }
+    else{  // swipe right
+    }
+  }
 
   $("#numContainer button").removeClass("active");
   $("#numContainer button:nth-of-type(" + n + ")").addClass("active");
-
   currentSlide = n;
 }
 
