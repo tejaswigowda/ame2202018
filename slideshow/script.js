@@ -48,11 +48,13 @@ var goToSlide = function(n, d)
  else{
     if(n > currentSlide){ // swipe left
       $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
-      $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"-100%"}, d);
-      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"margin-left":"100%"}).animate({"margin-left":"0%"}, d);
-
+      $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"-100%", "opacity":0}, d);
+      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":"0"}).css({"margin-left":"100%"}).animate({"opacity":"1","margin-left":"0%"}, d);
     }
     else{  // swipe right
+      $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
+      $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"100%", "opacity": 0}, d);
+      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":0,"margin-left":"-100%"}).animate({"opacity":1,"margin-left":"0%"}, d);
     }
   }
 
