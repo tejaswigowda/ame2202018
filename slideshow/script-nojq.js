@@ -82,17 +82,21 @@ var goToSlide = function(n, d)
       for(var i = 0; i < slideElements.length; i++){
         slideElements[i].style.transitionDuration = d + "ms";
         if(n == (i + 1)){
-          slideElements[i].style.opacity = 1;
-          slideElements[i].style.marginLeft = "0%";
+          slideElements[i].style.transitionDuration = "0ms";
+          slideElements[i].style.marginLeft = "100%";
+          var x = slideElements[i];
+          setTimeout(function(){
+            x.style.transitionDuration = d + "ms";
+            x.style.opacity = 1;
+            x.style.marginLeft = "0%";
+          }, 1);
         }
         else{
           slideElements[i].style.opacity = 0;
           slideElements[i].style.marginLeft = "-100%";
         }
       }
-
       /*
-
       $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
       $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"-100%", "opacity":0}, d);
       $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":"0"}).css({"margin-left":"100%"}).animate({"opacity":"1","margin-left":"0%"}, d);
@@ -103,12 +107,15 @@ var goToSlide = function(n, d)
       for(var i = 0; i < slideElements.length; i++){
         slideElements[i].style.transitionDuration = d + "ms";
         if(n == (i + 1)){
+          slideElements[i].style.transitionDuration = "0ms";
+          slideElements[i].style.marginLeft = "100%";
+          slideElements[i].style.transitionDuration = d + "ms";
           slideElements[i].style.opacity = 1;
           slideElements[i].style.marginLeft = "0%";
         }
         else{
           slideElements[i].style.opacity = 0;
-          slideElements[i].style.marginLeft = "100%";
+          slideElements[i].style.marginLeft = "-100%";
         }
       }
       /*
