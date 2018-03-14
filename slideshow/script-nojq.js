@@ -63,8 +63,19 @@ var goToSlide = function(n, d)
 {
   d = d || 0;
   if(ani === "fade"){
-    $("#ssContainer .slide").stop().fadeOut(d);
-    $("#ssContainer .slide:nth-of-type(" + n + ")").stop().fadeIn(d);
+    //$("#ssContainer .slide").stop().fadeOut(d);
+    //$("#ssContainer .slide:nth-of-type(" + n + ")").stop().fadeIn(d);
+    var slideElements = document.getElementById("ssContainer").getElementsByClassName("slide");
+    for(var i = 0; i < slideElements.length; i++){
+      var ele = slideElements[i];
+      ele.style.transitionDuration = d + "ms";
+      if( n == (i+1) ){
+        ele.style.opacity = 1;
+      }
+      else{
+        ele.style.opacity = 0;
+      }
+    }
   }
  else{
     if(n > currentSlide){ // swipe left
@@ -79,8 +90,19 @@ var goToSlide = function(n, d)
     }
   }
 
-  $("#numContainer button").removeClass("active");
-  $("#numContainer button:nth-of-type(" + n + ")").addClass("active");
+  //$("#numContainer button").removeClass("active");
+  //$("#numContainer button:nth-of-type(" + n + ")").addClass("active");
+    var numElements = document.getElementById("numContainer").getElementsByTagName("button");
+    for(var i = 0; i < numElements.length; i++){
+      var ele = numElements[i];
+      if( n == (i+1) ){
+        ele.className = "active";
+      }
+      else{
+        ele.className = "";
+      }
+    }
+
   currentSlide = n;
 }
 
