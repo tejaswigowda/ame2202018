@@ -163,7 +163,7 @@ function getXMLHTTPRequest()
     return request;
 }
 
-function loadData(url, callback)
+function loadFile(url, callback)
 {
     var aXMLHttpRequest = getXMLHTTPRequest();
     var allData;
@@ -191,8 +191,8 @@ function loadData(url, callback)
 
 var load = function()
 {
-	ENV.initialize();
-  loadData("./dream.txt",generateCloud);
+  var file = document.getElementById("dropDown").value;
+  loadFile("./" + file,generateCloud);
 }
 
 
@@ -232,6 +232,10 @@ function generateCloud(data)
 
 <body onload='load()'> <!-- load starts execution after body loads -->
 <h1> Word Cloud </h1>
+  <select id='dropDown' onchange='load()'>
+    <option value='dream.txt'> I have a Dream </option>
+    <option value='sense.txt'> Common Sense </option>
+  </select>
 <div id='cloud'> </div>
 </body>
 
