@@ -5,7 +5,7 @@
 
 Start with
 [this
-code](https://github.com/tejaswigowda/ame2202018/tree/master/wordcloud)
+code](https://github.com/tejaswigowda/ame2202018/tree/master/wordCloud)
 and make sure yoiu generate appropriate wordclouds.
 
 ## Submission
