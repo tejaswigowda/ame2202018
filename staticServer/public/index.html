@@ -4,6 +4,12 @@
 <script>
 	function calculate()
 	{
+		var eq = document.getElementById("userInput").value;
+		eq = encodeURIComponent(eq);
+		var url = "./eval?eq=" + eq; 
+		loadFile(url, function(resData){
+			document.getElementById("result").innerHTML = resData;
+		});
 	}
 </script>
 </head>
