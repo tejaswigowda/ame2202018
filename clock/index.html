@@ -2,6 +2,32 @@
 <html>
 <head>
 <style>
+.hand#sec{
+  height: 150px;
+  width: 2px;
+  position: absolute;
+  background: red;
+  transform: translate(150px);
+  transform-origin: 0px 150px;
+}
+
+.hand#min{
+  height: 130px;
+  width: 3px;
+  position: absolute;
+  background: black;
+  transform: translate(150px,20px);
+  transform-origin: 0px 130px;
+}
+
+.hand#hour{
+  height: 100px;
+  width: 5px;
+  position: absolute;
+  background: blue;
+  transform: translate(150px,50px);
+  transform-origin: 0px 100px;
+}
 #clockWrapper{
   height: 300px;
   width: 300px;
@@ -20,9 +46,38 @@
     transform: translate(150px,0px) rotate(30deg);
 }
 
-
 #num2{
     transform: translate(150px,0px) rotate(60deg);
+}
+
+#num3{
+    transform: translate(150px,0px) rotate(90deg);
+}
+
+#num4{
+    transform: translate(150px,0px) rotate(120deg);
+}
+
+#num5{
+    transform: translate(150px,0px) rotate(150deg);
+}
+#num6{
+    transform: translate(150px,0px) rotate(180deg);
+}
+#num7{
+    transform: translate(150px,0px) rotate(-150deg);
+}
+#num8{
+    transform: translate(150px,0px) rotate(-120deg);
+}
+#num9{
+    transform: translate(150px,0px) rotate(-90deg);
+}
+#num10{
+    transform: translate(150px,0px) rotate(-60deg);
+}
+#num11{
+    transform: translate(150px,0px) rotate(-30deg);
 }
 
 </style>
@@ -31,7 +86,7 @@
 </script>
 </head>
 
-<body>
+<body onload='setInterval("displayTime()", 1000)'>
   <div id='clockWrapper'>
     <div class='num' id='num12'> | </div>
     <div class='num' id='num1'> | </div>
