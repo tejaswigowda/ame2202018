@@ -92,11 +92,19 @@
     var ma = m * (360/60);
     var sa = s * (360/60);
       
+    document.getElementById("sec").style.transform = 'translate(150px) rotate(' + sa + 'deg)'
+    document.getElementById("min").style.transform = 'translate(150px,20px) rotate(' + ma + 'deg)'
+    document.getElementById("hour").style.transform = 'translate(150px,50px) rotate(' + ha + 'deg)'
+  }
+
+  function start(){
+    displayTime();
+    setInterval("displayTime()", 1000);
   }
 </script>
 </head>
 
-<body onload='setInterval("displayTime()", 1000)'>
+<body onload='start()'>
   <div id='clockWrapper'>
     <div class='num' id='num12'> | </div>
     <div class='num' id='num1'> | </div>
