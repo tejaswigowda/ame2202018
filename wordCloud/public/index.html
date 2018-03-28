@@ -196,13 +196,13 @@ var load = function()
 }
 
 
-var allWords = [];
-var wordCount = {}
 
 
 
 function generateCloud(data) 
 {
+var allWords = [];
+var wordCount = {}
    allWords = data.match(/\b\w+\b/g);   //get all words in the document
    
    for(var i = 0; i < allWords.length; i = i + 1){
