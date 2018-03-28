@@ -8,6 +8,10 @@ Start with
 code](https://github.com/tejaswigowda/ame2202018/tree/master/wordCloud)
 and make sure yoiu generate appropriate wordclouds.
 
+## Example
+![Soln Eg](./solnEg.png)
+
+
 ## Submission
 Demo in class.
 
