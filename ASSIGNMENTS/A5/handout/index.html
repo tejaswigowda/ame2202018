@@ -2,6 +2,19 @@
 <html>
 <head>
 <style>
+#timeString{
+  text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+}
+#DropDownTimezone{
+    font-size: 20px;
+    margin: auto;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
 .hand#sec{
   height: 150px;
   width: 2px;
@@ -95,11 +108,17 @@
     document.getElementById("sec").style.transform = 'translate(150px) rotate(' + sa + 'deg)'
     document.getElementById("min").style.transform = 'translate(150px,20px) rotate(' + ma + 'deg)'
     document.getElementById("hour").style.transform = 'translate(150px,50px) rotate(' + ha + 'deg)'
+    document.getElementById("timeString").innerHTML = get2digit(h) + " : " + get2digit(m) + " : " + get2digit(s);
   }
 
   function start(){
     displayTime();
     setInterval("displayTime()", 1000);
+  }
+
+  function get2digit(myNumber)
+  {
+    return ("0" + myNumber).slice(-2);
   }
 </script>
 </head>
@@ -156,6 +175,7 @@
     <div class='hand' id='min'></div>
     <div class='hand' id='sec'></div>
   </div>
+  <div id='timeString'></div>
 </body>
 
 </html>
