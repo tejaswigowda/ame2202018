@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<style>
+  @keyframes spinning-ani{
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .blackbg
+  {
+    background: black;
+  }
+  .redbg
+  {
+    background: red;
+  }
+  .greenbg
+  {
+    background: green;
+  }
+  .bluebg
+  {
+    background: blue:;
+  }
+  .spinner{
+    height: 100px;
+    width: 100px;
+  }
+  .spin10
+  {
+    animation-name: spinning-ani;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+  }
+  .spin3{
+     animation: spinning-ani 10 1s linear;
+  }
+
+</style>
+</head>
+
+<body>
+  <div class='spinner spin10 blackbg'> </div>
+  <div class='spinner redbg spin3'> </div>
+  <div class='spinner bluebg spin2'> </div>
+</body>
+</html>
