@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<style>
+.night{
+      color: white;
+    background: black;
+}
+.night .hand#min{
+  background:lightgray;
+}
+#timeString{
+  text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+}
+#DropDownTimezone{
+    font-size: 20px;
+    margin: auto;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.hand#sec{
+  height: 150px;
+  width: 2px;
+  position: absolute;
+  background: red;
+  transform: translate(150px);
+  transform-origin: 0px 150px;
+}
+
+.hand#min{
+  height: 130px;
+  width: 3px;
+  position: absolute;
+  background: black;
+  transform: translate(150px,20px);
+  transform-origin: 0px 130px;
+}
+
+.hand#hour{
+  height: 100px;
+  width: 5px;
+  position: absolute;
+  background: blue;
+  transform: translate(150px,50px);
+  transform-origin: 0px 100px;
+}
+#clockWrapper{
+  height: 300px;
+  width: 300px;
+  margin: auto;
+  border: double 10px;
+  border-radius: 200px;
+}
+.num{
+  text-align: center;
+  position: absolute;
+  transform: translate(150px,0px);
+  transform-origin: 0px 150px;
+}
+
+#num1{
+    transform: translate(150px,0px) rotate(30deg);
+}
+
+#num2{
+    transform: translate(150px,0px) rotate(60deg);
+}
+
+#num3{
+    transform: translate(150px,0px) rotate(90deg);
+}
+
+#num4{
+    transform: translate(150px,0px) rotate(120deg);
+}
+
+#num5{
+    transform: translate(150px,0px) rotate(150deg);
+}
+#num6{
+    transform: translate(150px,0px) rotate(180deg);
+}
+#num7{
+    transform: translate(150px,0px) rotate(-150deg);
+}
+#num8{
+    transform: translate(150px,0px) rotate(-120deg);
+}
+#num9{
+    transform: translate(150px,0px) rotate(-90deg);
+}
+#num10{
+    transform: translate(150px,0px) rotate(-60deg);
+}
+#num11{
+    transform: translate(150px,0px) rotate(-30deg);
+}
+
+</style>
+<script src='moment.min.js'> </script>
+<script>
+  function displayTime(){
+    var hashValue = parseFloat(window.location.hash.replace("#",""));
+    var dateInMS = new Date().getTime() + new Date().getTimezoneOffset() * 60 *1000 + hashValue * 60 * 60 * 1000
+    var h = new Date(dateInMS).getHours();
+    var m = new Date(dateInMS).getMinutes()
+    var s = new Date(dateInMS).getSeconds()
+
+    var ha = h * (360/12) + (m*.5);
+    var ma = m * (360/60)
+    var sa = s * (360/60);
+      
+    document.getElementById("sec").style.transform = 'translate(150px) rotate(' + sa + 'deg)'
+    document.getElementById("min").style.transform = 'translate(150px,20px) rotate(' + ma + 'deg)'
+    document.getElementById("hour").style.transform = 'translate(150px,50px) rotate(' + ha + 'deg)'
+    document.getElementById("timeString").innerHTML = moment(dateInMS).format('MMMM Do YYYY, h:mm:ss a');
+
+    if(h < 6 || h >= 18){ //night
+      document.getElementById("clockWrapper").className = "night";
+    }
+    else{
+      document.getElementById("clockWrapper").className = "";
+    }
+  }
+
+  function start(){
+    displayTime();
+    setInterval("displayTime()", 1000);
+  }
+
+  function get2digit(myNumber)
+  {
+    return ("0" + myNumber).slice(-2);
+  }
+</script>
+</head>
+
+<body style='overflow:hidden' onload='start()'>
+  <div id='clockWrapper'>
+    <div class='num' id='num12'> | </div>
+    <div class='num' id='num1'> | </div>
+    <div class='num' id='num2'> | </div>
+    <div class='num' id='num3'> | </div>
+    <div class='num' id='num4'> | </div>
+    <div class='num' id='num5'> | </div>
+    <div class='num' id='num6'> | </div>
+    <div class='num' id='num7'> | </div>
+    <div class='num' id='num8'> | </div>
+    <div class='num' id='num9'> | </div>
+    <div class='num' id='num10'> | </div>
+    <div class='num' id='num11'> | </div>
+    <div class='hand' id='hour'></div>
+    <div class='hand' id='min'></div>
+    <div class='hand' id='sec'></div>
+  </div>
+  <div id='timeString'></div>
+</body>
+
+</html>
