@@ -3,7 +3,7 @@
 
 ## Task
 
-![CSS Ani](.Untitled.png "CSS Animations Demo")
+![CSS Ani](./Untitled.png "CSS Animations Demo")
 
 Create a demo page for
 [Animate.css](https://github.com/daneden/animate.css)]. The user
